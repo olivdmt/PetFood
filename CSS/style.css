@@ -318,6 +318,15 @@ footer .copy {
     text-align: center;
 }
 
+.btn-mobile {
+
+    display: none; /* Esconde o hamburguer no desktop */
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+}
+
+
 /* --- RESPONSIVIDADE (MOBILE) --- */
 
 @media (max-width: 768px) {
@@ -328,21 +337,66 @@ footer .copy {
         font-size: 90%; 
     }
 
+    .btn-mobile {
+    display: none; /* Esconde o hamburguer no desktop */
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    }
+
     /* Cabeçalho (Header) */
     header {
-        padding: 15px 5%;
+        padding: 40px 5%;
         flex-direction: column; /* Empilha logo, menu e botão */
         gap: 15px;
         position: relative; /* No mobile, geralmente tiramos o fixed ou ajustamos o topo */
     }
-
+/* 
     header nav {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 15px;
         text-align: center;
+    } */
+
+
+    .nav-wrapper a:hover {
+        color: #333;
     }
+
+    .btn-call {
+        display: none;
+    }
+
+    /* O Menu em si (Estado FECHADO) */
+    #navegation {
+        display: none; /* Começa invisível */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh; /* Tela inteira */
+        background: rgba(255, 255, 255, 0.95);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        z-index: 999;
+    }
+
+    /* Estilo dos links no mobile */
+    #navegation a {
+        font-size: 24px;
+        color: var(--primary);
+        font-weight: bold;
+    }
+
+    /* O Menu (Estado ABERTO) - O JS vai adicionar essa classe */
+    #navegation.aberto {
+        display: flex; /* Muda de none para flex para aparecer */
+    }
+
 
     /* Hero Section (Início) */
     .hero-section {
@@ -404,5 +458,13 @@ footer .copy {
 
     footer .copy {
         margin-top: 20px;
+    }
+
+    i {
+        color: #fff;
+        position: fixed;
+        left: 50px;
+        font-size: 20px;
+        cursor: pointer;
     }
 }
